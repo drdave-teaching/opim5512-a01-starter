@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "PNG exists in A01-eda/figs",
+      "run": "bash -lc 'ls A01-eda/figs/*.png >/dev/null 2>&1'",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "PNG was updated in this PR",
+      "setup": "bash -lc 'git fetch origin main'",
+      "run": "bash -lc 'git diff --name-only origin/main...HEAD | grep -E \"^A01-eda/figs/.+\\.png$\"'",
+      "comparison": "included",
+      "timeout": 15,
+      "points": 4
+    },
+    {
+      "name": "README note updated",
+      "run": "bash -lc 'grep -Ei \"result|figure|bins|hist|summary\" A01-eda/README.md'",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    ]
+  ]
+}
