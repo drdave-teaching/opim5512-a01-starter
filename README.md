@@ -1,5 +1,20 @@
-# opim5512-dww05002-answers
-Dave's solutions to the HW
+# opim5512-a01-starter
+This is the starter repo for students to clone to their own repository. 
+
+## First, make sure you have GitHub CLI installed (should only need to do this once.)
+```bash
+# Install GitHub CLI (Windows)
+winget install GitHub.cli
+
+# Verify
+gh --version
+
+# Login (follow the browser flow)
+gh auth login
+# → GitHub.com → HTTPS → "Login with a web browser"
+```
+
+## Now you can clone it!
 
 ```bash
 cd $HOME\Desktop
