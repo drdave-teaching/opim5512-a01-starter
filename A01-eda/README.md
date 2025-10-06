@@ -27,7 +27,7 @@ README.md
 
 2) **Make exactly one EDA change**
    - Example A: change `bins=30` → `bins=12`
-   - Example B: switch from column `price` → `tip`
+   - Example B: switch from column `HousePrice` → `AgeHouse`
    - Keep everything else the same.
 
 3) **Export the figure**
@@ -47,3 +47,4 @@ README.md
   - **Latest commit:** `a1b2c3d`
   - **What changed:** one sentence (e.g., “Changed histogram bins to 12” or “Switched column to `tip`”)
   - **(Optional) PR link:** https://github.com/<owner>/<repo>/pull/<number>
+
