@@ -1,0 +1,12 @@
+name: Autograding
+on:
+  pull_request:
+  push:
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # we need history to diff against main
+      - uses: education/autograding@v1
