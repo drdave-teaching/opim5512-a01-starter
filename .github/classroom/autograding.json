@@ -7,10 +7,9 @@
       "timeout": 20,
       "points": 4
     },
-    {
+{
       "name": "PNG was updated in this PR",
-      "setup": "bash -lc 'git fetch -q origin main || true'",
-      "run": "bash -lc 'set -e; if git rev-parse --verify origin/main >/dev/null 2>&1; then CHANGED=$(git diff --name-only origin/main...HEAD | grep -E ^A01-eda/figs/.+\\.(png|jpg|jpeg)$ || true); if [ -n \"$CHANGED\" ]; then echo ::notice::Changed PNGs:; echo \"$CHANGED\"; else echo ::error::No figure changes detected. Edit the plot (e.g., bins) and re-save to A01-eda/figs/.; git diff --name-only origin/main...HEAD | sed \"s/^/Changed file: /\" || true; exit 1; fi; else echo ::notice::No baseline (first push) — skipping diff check.; fi'",
+      "run": "bash -lc \"set -e; git fetch -q origin main || true; if git rev-parse --verify origin/main >/dev/null 2>&1; then CHANGED=$(git diff --name-only origin/main -- 'A01-eda/figs/*.png' || true); if [ -n \\\"$CHANGED\\\" ]; then echo ::notice::Changed PNGs:; echo \\\"$CHANGED\\\"; else echo ::error::No figure changes detected. Please update a figure in A01-eda/figs and re-commit.; git diff --name-only origin/main...HEAD | sed 's/^/Changed file: /' || true; exit 1; fi; else echo ::notice::No baseline (first push) - skipping diff check.; fi\"",
       "comparison": "included",
       "timeout": 25,
       "points": 4
